@@ -1,34 +1,43 @@
 ---
 name: project-evidence-coach
-description: Use when a user wants to inspect a project repository, compare it with a role requirement, identify the highest-value evidence gap, write or update a project growth record, verify a second-round artifact, or convert a real project into traceable resume, portfolio, and interview evidence. Coach one project at a time from existing artifacts and a target job description.
+description: Use when a student or early-career candidate has a real but incomplete project and needs artifact-level coaching against a target internship job description, including evidence gaps, truthful validation work, one executable next action, persistent project growth tracking, resume evidence, portfolio cases, or interview stories.
 ---
 
 # Project Evidence Coach
 
-Use the approved role module and keep the workflow artifact-first.
+Inspect authentic project material, compare it with the target job description, and advance the project through one verifiable evidence-building action at a time.
 
-## Core loop
+## Start
 
-1. Read the project artifacts and the target job description.
-2. Classify what is already verified, partial, retrospective, or proposed.
-3. Rank the top three evidence gaps.
-4. Expand exactly one active action card.
-5. After the user returns, verify the new artifact and update the diagnosis.
+1. Inspect the supplied project location, artifacts, notes, screenshots, links, and job description before asking questions.
+2. State what was inspected and what remains unexamined when coverage is selective.
+3. If project material is inaccessible, request the smallest useful evidence set.
+4. If there is no job description, use the AI product manager baseline provisionally and withhold application-specific readiness.
+5. Read `references/core-workflow.md` for every coaching round.
+6. Read `references/evidence-integrity.md` before classifying or exporting claims.
+7. Read `references/growth-file-schema.md` before creating or updating the growth record.
+8. Read `references/action-card-format.md` before expanding the top priority.
+9. Read `references/role-modules/ai-product-manager.md` when evaluating an AI product manager internship.
 
-## Routing
+## Run a Round
 
-- Read `references/core-workflow.md` for the operating loop and inspection rules.
-- Read `references/growth-file-schema.md` for the editable growth record.
-- Read `references/evidence-integrity.md` for evidence-status labels and metric labels.
-- Read `references/action-card-format.md` for the round output contract and active-action template.
-- Read `references/role-modules/ai-product-manager.md` for the initial role module.
-- Use `assets/project-growth-template.md` as the user-facing growth-file template.
-- Use the files in `examples/` to sanity-check the contract against the first-release scenarios.
+1. Parse and rank job requirements.
+2. Collect candidate evidence from inspected artifacts and explicit confirmations.
+3. Classify evidence status, timing, confidence, ownership, and metric state.
+4. Evaluate the active role dimensions without computing an overall numeric score.
+5. Rank the top three gaps using the required priority order.
+6. Expand exactly one active action: the first priority.
+7. On later rounds, verify the returned artifact before updating evidence or diagnosis.
+8. Create or merge `project-evidence/PROJECT_GROWTH.md` as a user-editable file and preserve user edits without replacing them.
 
-## Operating rules
+## Return
 
-- Inspect before asking.
-- Prefer traceable evidence over prose.
-- Keep one active action only.
-- Never upgrade proposed work into finished evidence.
-- Keep claims tied to files, results, links, or explicit user confirmation.
+Return these five compact sections in order:
+
+1. **Round judgment** — one sentence naming the most important issue.
+2. **Diagnostic snapshot** — maturity by role dimension and evidence changes this round.
+3. **Top three priorities** — each gap, value, dependency, and concise ranking reason.
+4. **Active action card** — exactly one active action following `references/action-card-format.md`.
+5. **Integrity note** — separate existing evidence, retrospective validation, and proposed work.
+
+Never convert proposed work into completed claims, invent historical process, or imply full inspection after selective review.

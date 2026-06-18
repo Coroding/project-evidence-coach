@@ -117,6 +117,30 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(path, skill)
 
+    def test_core_workflow_encodes_priority_order_and_edge_cases(self):
+        workflow = read("references/core-workflow.md")
+        ordered = (
+            "blocking dependency",
+            "importance in the target job description",
+            "size of the evidence gap",
+            "evidence value relative to effort",
+            "available time and constraints",
+        )
+        positions = [workflow.index(item) for item in ordered]
+        self.assertEqual(positions, sorted(positions))
+        for case in (
+            "No job description",
+            "Insufficient project material",
+            "Large repository",
+            "No real users",
+            "No historical data",
+            "Limited user time",
+            "Project/JD mismatch",
+            "Unverifiable ownership",
+            "Conflicting artifacts",
+        ):
+            self.assertIn(case, workflow)
+
     def test_project_growth_is_user_editable_and_preserves_edits(self):
         combined = read("SKILL.md")
         for phrase in (
@@ -136,7 +160,7 @@ class SkillContractTests(unittest.TestCase):
             self.assertIn(phrase.lower(), combined.lower())
 
     def test_saved_to_action_is_optional_not_required(self):
-        combined = read("SKILL.md")
+        combined = read("SKILL.md") + read("references/core-workflow.md")
         for phrase in (
             "saved-to-action",
             "optional",
