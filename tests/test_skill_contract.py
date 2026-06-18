@@ -31,7 +31,9 @@ class SkillContractTests(unittest.TestCase):
     def test_skill_frontmatter_and_metadata(self):
         skill = read("SKILL.md")
         self.assertTrue(skill.startswith("---\nname: project-evidence-coach\n"))
-        description = re.search(r"^description: (.+)$", skill, re.MULTILINE).group(1)
+        description_match = re.search(r"^description: (.+)$", skill, re.MULTILINE)
+        self.assertIsNotNone(description_match, "SKILL.md is missing a description frontmatter line")
+        description = description_match.group(1)
         self.assertTrue(description.startswith("Use when "))
         self.assertLessEqual(len(description), 1024)
         metadata = read("agents/openai.yaml")
@@ -114,6 +116,33 @@ class SkillContractTests(unittest.TestCase):
             "references/role-modules/ai-product-manager.md",
         ):
             self.assertIn(path, skill)
+
+    def test_project_growth_is_user_editable_and_preserves_edits(self):
+        combined = read("SKILL.md")
+        for phrase in (
+            "project-evidence/PROJECT_GROWTH.md",
+            "user-editable",
+            "preserve user edits",
+        ):
+            self.assertIn(phrase.lower(), combined.lower())
+
+    def test_no_jd_mode_is_provisional_and_withholds_readiness(self):
+        combined = read("SKILL.md")
+        for phrase in (
+            "no job description",
+            "provisional",
+            "withhold application-specific readiness",
+        ):
+            self.assertIn(phrase.lower(), combined.lower())
+
+    def test_saved_to_action_is_optional_not_required(self):
+        combined = read("SKILL.md")
+        for phrase in (
+            "saved-to-action",
+            "optional",
+            "not required",
+        ):
+            self.assertIn(phrase.lower(), combined.lower())
 
 
 if __name__ == "__main__":
