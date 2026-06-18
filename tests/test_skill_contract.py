@@ -162,6 +162,20 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase, workflow)
 
+    def test_core_workflow_restores_project_level_readiness_labels(self):
+        workflow = read("references/core-workflow.md")
+        for label in (
+            "not ready",
+            "partially usable",
+            "application-ready for this JD",
+        ):
+            self.assertIn(label, workflow)
+        for warning in (
+            "does not mean universal completeness",
+            "does not guarantee an employment outcome",
+        ):
+            self.assertIn(warning, workflow)
+
     def test_project_growth_is_user_editable_and_preserves_edits(self):
         combined = read("SKILL.md")
         for phrase in (

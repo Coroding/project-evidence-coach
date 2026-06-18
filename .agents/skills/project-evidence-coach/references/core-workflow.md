@@ -69,6 +69,14 @@ Do not prescribe or compute any overall numeric score, percentage, weighted tota
 
 When discussing supported-output relevance, tie the current evidence and next action to the normalized output goal (`resume`, `portfolio`, or `interview`) without changing what the evidence honestly supports.
 
+## Project-level readiness labels
+
+Use these exact project-level readiness labels separately from the dimension maturity states:
+
+- `not ready`: the current evidence is too incomplete, weak, or unverified to support a credible application artifact for this target job description.
+- `partially usable`: some evidence can support limited resume, portfolio, or interview use for this target job description, but important gaps, weak proof, or missing verification still constrain readiness.
+- `application-ready for this JD`: the current evidence is strong enough to support this target job description across the intended output goal without claiming more than the artifacts can verify.
+
 Application readiness remains scoped to the evaluated job description only. It does not mean universal completeness and does not guarantee an employment outcome.
 
 ## Edge-case handling
