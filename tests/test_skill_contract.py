@@ -79,6 +79,55 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(heading, template)
 
+    def test_growth_schema_preserves_user_state(self):
+        schema = read("references/growth-file-schema.md")
+        for rule in (
+            "preserve unknown headings",
+            "preserve user-authored text",
+            "update by stable identifier",
+            "never renumber existing identifiers",
+            "exactly three priority rows",
+            "exactly one active action",
+            "append only concise completed-action deltas",
+            "ask before resolving contradictory user edits",
+        ):
+            self.assertIn(rule, schema.lower())
+
+    def test_growth_schema_defines_stable_ids_and_table_contracts(self):
+        schema = read("references/growth-file-schema.md")
+        for identifier in ("R-001", "E-001", "A-001"):
+            self.assertIn(identifier, schema)
+        for phrase in (
+            "ID | normalized requirement | source wording or location | importance | current support status | relevant evidence IDs",
+            "ID | supported claim or capability | source | temporal status | confidence | unresolved questions | supported outputs | linked requirements",
+            "original",
+            "retrospective",
+            "proposed",
+            "missing",
+            "initial",
+            "presentable",
+            "verifiable",
+            "application-ready",
+        ):
+            self.assertIn(phrase, schema)
+
+    def test_growth_template_uses_safe_placeholders_without_fake_wins(self):
+        template = read("assets/project-growth-template.md")
+        for phrase in (
+            "Not provided",
+            "No evidence recorded yet",
+            "No action selected yet",
+            "<!--",
+        ):
+            self.assertIn(phrase, template)
+        for forbidden in (
+            "Increased conversion",
+            "Shipped successfully",
+            "Improved retention",
+            "Completed user research",
+        ):
+            self.assertNotIn(forbidden, template)
+
     def test_role_module_has_all_eight_dimensions(self):
         role = read("references/role-modules/ai-product-manager.md")
         dimensions = (
