@@ -9,7 +9,7 @@ Inspect authentic project material, compare it with the target job description, 
 
 ## Start
 
-1. Inspect the supplied project location, artifacts, notes, screenshots, links, and job description before asking questions.
+1. Inspect the supplied project location, artifacts, notes, screenshots, links, job description, and intended output goal before asking questions.
 2. State what was inspected and what remains unexamined when coverage is selective.
 3. If project material is inaccessible, request the smallest useful evidence set.
 4. If there is no job description, use the AI product manager baseline provisionally and withhold application-specific readiness.
@@ -24,7 +24,7 @@ Inspect authentic project material, compare it with the target job description, 
 1. Parse and rank job requirements.
 2. Collect candidate evidence from inspected artifacts and explicit confirmations.
 3. Classify evidence status, timing, confidence, ownership, and metric state.
-4. Evaluate the active role dimensions without computing an overall numeric score.
+4. Evaluate the active role dimensions using the allowed qualitative maturity states and without computing an overall numeric score.
 5. Rank the top three gaps using the required priority order.
 6. Expand exactly one active action: the first priority.
 7. On later rounds, verify the returned artifact before updating evidence or diagnosis.

@@ -2,9 +2,10 @@
 
 ## Intake
 
-1. Inspect the supplied repository, files, screenshots, notes, links, prior growth record, and any attached job description before asking questions.
+1. Inspect the supplied repository, files, screenshots, notes, links, prior growth record, any attached job description, and the user's intended output goal before asking questions.
 2. Name what was inspected. If the inspection was selective, disclose what remains unexamined and avoid implying full coverage.
 3. If the project material is inaccessible or too thin to support coaching, request the smallest useful evidence set and pause further judgment.
+4. Normalize the intended output goal to `resume`, `portfolio`, or `interview` when possible. Use it to shape supported-output relevance, examples, and action framing without overriding JD importance or evidence integrity.
 
 ## Job-description normalization
 
@@ -23,7 +24,7 @@
 1. Parse and rank job requirements.
 2. Collect candidate evidence from inspected artifacts and explicit confirmations.
 3. Classify evidence status, timing, confidence, ownership, and metric state.
-4. Evaluate the active role dimensions without computing an overall numeric score.
+4. Evaluate the active role dimensions using only the allowed qualitative maturity states and without computing an overall numeric score.
 5. Rank the top three gaps using the required priority order.
 6. Expand exactly one active action: the first priority.
 7. On later rounds, verify the returned artifact before updating evidence or diagnosis.
@@ -39,6 +40,7 @@ Rank the top three priorities in this exact order:
 5. available time and constraints
 
 Re-rank dynamically after every verified artifact, correction, new constraint, or deadline change. Only the first priority becomes the active action card; the remaining priorities stay concise queue entries.
+Use the intended output goal as a relevance shaper after the required priority order is applied: prefer actions that create stronger resume bullets, portfolio proof, or interview stories only when that choice does not override blocking dependency, JD importance, or evidence integrity.
 
 ## Second-round verification and reprioritization
 
@@ -53,15 +55,21 @@ Re-rank dynamically after every verified artifact, correction, new constraint, o
 - If the client supports a `saved-to-action` handoff, use it only after producing the normal round output.
 - If the client does not support it, return the same active action inline without loss of fidelity.
 
-## Readiness labels
+## Diagnostic snapshot contract
 
-Use only these exact readiness labels:
+Report maturity by role dimension using only these exact qualitative states:
 
-- `not ready`
-- `partially usable`
-- `application-ready for this JD`
+- `missing`
+- `initial`
+- `presentable`
+- `verifiable`
+- `application-ready`
 
-Readiness indicates current evidence fit for the evaluated job description only. It does not mean universal completeness and does not guarantee an employment outcome.
+Do not prescribe or compute any overall numeric score, percentage, weighted total, or pseudo-precise aggregate format.
+
+When discussing supported-output relevance, tie the current evidence and next action to the normalized output goal (`resume`, `portfolio`, or `interview`) without changing what the evidence honestly supports.
+
+Application readiness remains scoped to the evaluated job description only. It does not mean universal completeness and does not guarantee an employment outcome.
 
 ## Edge-case handling
 

@@ -141,6 +141,27 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(case, workflow)
 
+    def test_core_workflow_limits_maturity_states_and_uses_output_goal(self):
+        workflow = read("references/core-workflow.md")
+        for state in (
+            "missing",
+            "initial",
+            "presentable",
+            "verifiable",
+            "application-ready",
+        ):
+            self.assertIn(state, workflow)
+        self.assertIn("without computing an overall numeric score", workflow)
+        self.assertNotRegex(workflow.lower(), r"overall\s+(?:numeric\s+)?score\s*[:=-]?\s*(?:\d|\d+\s*/\s*\d+)")
+        for phrase in (
+            "output goal",
+            "resume",
+            "portfolio",
+            "interview",
+            "supported-output relevance",
+        ):
+            self.assertIn(phrase, workflow)
+
     def test_project_growth_is_user_editable_and_preserves_edits(self):
         combined = read("SKILL.md")
         for phrase in (
