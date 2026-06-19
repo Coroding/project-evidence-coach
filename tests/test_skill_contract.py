@@ -208,6 +208,14 @@ class SkillContractTests(unittest.TestCase):
         )
         self.assertTrue(all(name in role for name in dimensions))
 
+    def test_role_module_is_jd_sensitive_and_non_numeric(self):
+        role = read("references/role-modules/ai-product-manager.md").lower()
+        for maturity in ("missing", "initial", "presentable", "verifiable", "application-ready"):
+            self.assertIn(maturity, role)
+        self.assertIn("job description changes", role)
+        self.assertIn("not equally weighted", role)
+        self.assertNotRegex(role, r"\b\d{1,3}/100\b")
+
     def test_examples_cover_all_release_scenarios(self):
         examples = "\n".join(
             read(path)
