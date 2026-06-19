@@ -21,6 +21,10 @@ class SkillContractTests(unittest.TestCase):
         )
         return {match.group("title"): match.group("body") for match in pattern.finditer(role)}
 
+    @staticmethod
+    def read_example(name: str) -> str:
+        return read(f"examples/{name}")
+
     def test_required_package_files_exist(self):
         required = {
             "SKILL.md",
@@ -292,6 +296,86 @@ class SkillContractTests(unittest.TestCase):
             example = read(path)
             for heading in ("## Fixture", "## Prompt", "## Must observe", "## Must not infer"):
                 self.assertIn(heading, example)
+
+    def test_example_scenario_mapping_is_exact_per_fixture(self):
+        mappings = {
+            "minimal-vibecoding-project.md": ("SCENARIO-1", "SCENARIO-3", "SCENARIO-4"),
+            "project-without-research.md": ("SCENARIO-2", "SCENARIO-5"),
+            "second-round-diagnosis.md": ("SCENARIO-6",),
+        }
+        all_markers = {"SCENARIO-1", "SCENARIO-2", "SCENARIO-3", "SCENARIO-4", "SCENARIO-5", "SCENARIO-6"}
+        for name, expected in mappings.items():
+            example = self.read_example(name)
+            for marker in expected:
+                self.assertIn(marker, example)
+            for marker in all_markers - set(expected):
+                self.assertNotIn(marker, example)
+
+    def test_minimal_fixture_locks_required_themes_and_separate_bullets(self):
+        example = self.read_example("minimal-vibecoding-project.md")
+        lines = example.splitlines()
+        for phrase in (
+            "- User claim:",
+            "- Target JD:",
+            "- State that README/framing is missing rather than inventing a product strategy or user story.",
+            "- State that metrics/results are missing rather than upgrading",
+            "- Include an explicit note that some JD requirements may belong to another project",
+            "- Cite the inspected artifacts directly instead of speaking as if the whole repository was reviewed.",
+            "- Expand exactly one active action card and keep the other two priorities concise.",
+        ):
+            self.assertIn(phrase, example)
+        self.assertIn('- User claim: "It works, but I mostly vibe-coded it and never documented why I built it."', lines)
+        self.assertIn(
+            "- Target JD: AI Product Manager Intern. The JD emphasizes user research, product metrics, experiment design, and communicating decisions with evidence.",
+            lines,
+        )
+
+    def test_no_research_fixture_locks_required_themes_and_separate_bullets(self):
+        example = self.read_example("project-without-research.md")
+        lines = example.splitlines()
+        for phrase in (
+            "- User request under pressure:",
+            "- Target JD:",
+            "- Refuse to rewrite the timeline or present planned interviews as original history.",
+            "- Say that future interviews are proposed work before they happen.",
+            "- Say that interviews performed later can become retrospective validation afterward if the notes are returned and verified.",
+            "- Make the active action a reduced-scope research action the student can really do soon, rather than a giant research program.",
+        ):
+            self.assertIn(phrase, example)
+        self.assertIn(
+            '- User request under pressure: "I can do three quick interviews this week. Please phrase them as if they happened during the original build so the story sounds stronger."',
+            lines,
+        )
+        self.assertIn(
+            "- Target JD: AI Product Manager Intern. The JD values research habits and evidence-based prioritization, but the product itself does not use AI yet.",
+            lines,
+        )
+
+    def test_second_round_fixture_locks_required_themes_and_separate_bullets(self):
+        example = self.read_example("second-round-diagnosis.md")
+        lines = example.splitlines()
+        for phrase in (
+            "- The growth file contains a user-authored note under `## Completed actions and output readiness`:",
+            "- Round-one diagnosis marked `Users and research` as `missing` and `Metrics and validation` as `initial`.",
+            "- Verify the new research artifact as a source before upgrading the evidence ledger or claiming the prior action is complete.",
+            "- Preserve the quoted user-authored growth-file note instead of rewriting or deleting it.",
+            "- Record the completed-action update as a concise delta, not as a huge narrative rewrite.",
+            "- Change the diagnosis based on the new evidence, especially for research/iteration-related dimensions.",
+            "- Reprioritize dynamically because both the evidence state and the JD changed.",
+            "- Expand exactly one new active action card and keep it distinct from the completed round-one action.",
+        ):
+            self.assertIn(phrase, example)
+        self.assertIn(
+            '  - The growth file contains a user-authored note under `## Completed actions and output readiness`: "Keep this project focused on prompt workflow clarity, not generic chatbot claims."',
+            lines,
+        )
+        self.assertTrue(
+            any(
+                line == "  - Round-one diagnosis marked `Users and research` as `missing` and `Metrics and validation` as `initial`."
+                for line in lines
+            ),
+            lines,
+        )
 
     def test_skill_stays_concise_and_routes_every_reference(self):
         skill = read("SKILL.md")

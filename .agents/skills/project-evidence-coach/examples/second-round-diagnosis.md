@@ -6,7 +6,7 @@
 - Round-one growth record excerpt already exists at `project-evidence/PROJECT_GROWTH.md`.
 - Verified prior state:
   - Priority 1 in round one was `A-003`: run one reduced-scope usability test on `PromptPilot` and return raw notes.
-  - The growth file contains a user-authored note under `## Completed actions and output readiness`: “Keep this project focused on prompt workflow clarity, not generic chatbot claims.”
+  - The growth file contains a user-authored note under `## Completed actions and output readiness`: "Keep this project focused on prompt workflow clarity, not generic chatbot claims."
   - Round-one diagnosis marked `Users and research` as `missing` and `Metrics and validation` as `initial`.
 - New returned artifact:
   - `research/usability-test-2026-06-18.md` with two participant sessions, task prompts, raw observations, and a section labeled `Retrospective validation completed after original build`.

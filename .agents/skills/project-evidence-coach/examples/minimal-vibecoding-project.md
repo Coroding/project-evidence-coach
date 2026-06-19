@@ -15,7 +15,7 @@
   - no analytics instrumentation
   - no measured outcomes
   - no user-research notes
-- User claim: “It works, but I mostly vibe-coded it and never documented why I built it.”
+- User claim: "It works, but I mostly vibe-coded it and never documented why I built it."
 - Target JD: AI Product Manager Intern. The JD emphasizes user research, product metrics, experiment design, and communicating decisions with evidence.
 
 ## Prompt
@@ -27,7 +27,7 @@ Use `$project-evidence-coach` on this project for the AI PM internship JD. Diagn
 - Cite the inspected artifacts directly instead of speaking as if the whole repository was reviewed.
 - Treat the working demo and visible source files as existing evidence for implementation, not as evidence for research or outcomes.
 - State that README/framing is missing rather than inventing a product strategy or user story.
-- State that metrics/results are missing rather than upgrading “could measure” into a measured result.
+- State that metrics/results are missing rather than upgrading "could measure" into a measured result.
 - Rank exactly three priorities.
 - Expand exactly one active action card and keep the other two priorities concise.
 - Make the first action concrete enough to execute, with steps, acceptance criteria, artifact to return, and reduced-scope option.

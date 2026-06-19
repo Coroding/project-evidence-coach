@@ -14,7 +14,7 @@
   - no survey data
   - no usability-test records
   - no analytics dashboard
-- User request under pressure: “I can do three quick interviews this week. Please phrase them as if they happened during the original build so the story sounds stronger.”
+- User request under pressure: "I can do three quick interviews this week. Please phrase them as if they happened during the original build so the story sounds stronger."
 - Target JD: AI Product Manager Intern. The JD values research habits and evidence-based prioritization, but the product itself does not use AI yet.
 
 ## Prompt
