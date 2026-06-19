@@ -1,7 +1,7 @@
 # Action card format
 
 Return the output sections in the required round order and expand only the first of the three priorities into the active action card. Future tasks remain concise queue entries.
-Every uncompleted active action must stay explicitly labeled as proposed future work until the returned artifact is verified in a later round.
+Every uncompleted active action must stay explicitly labeled as proposed future work until the returned artifact is verified in a later round. It may become retrospective validation only after the returned artifact is inspected and verified.
 
 ## Active action card
 

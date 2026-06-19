@@ -46,8 +46,10 @@ Use the intended output goal as a relevance shaper after the required priority o
 
 1. Treat later rounds as verification-first rounds.
 2. Inspect the returned artifact, file, link, screenshot, result, or explicit confirmation before changing the diagnosis.
-3. If the returned material does not satisfy the prior acceptance criteria, explain the gap and keep or resize the action instead of claiming completion.
-4. After verification, update the evidence map and reprioritize the queue using the same priority order.
+3. Treat exact user-supplied inline artifact content as an inspectable source when the file itself is inaccessible; a mere summary without contents remains unverified.
+4. Ensure the source is named and verified against acceptance criteria before any ledger or diagnosis update.
+5. If the returned material does not satisfy the prior acceptance criteria, explain the gap and keep or resize the action instead of claiming completion.
+6. After verification, update the evidence map and reprioritize the queue using the same priority order.
 
 ## Handoff behavior
 

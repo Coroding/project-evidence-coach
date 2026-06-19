@@ -84,6 +84,10 @@ class SkillContractTests(unittest.TestCase):
             action_card,
             r"until (?:the )?returned artifact is verified",
         )
+        self.assertRegex(
+            action_card,
+            r"retrospective validation only after (?:the )?returned artifact is inspected and verified",
+        )
 
     def test_evidence_and_metric_vocabularies_are_complete(self):
         integrity = read("references/evidence-integrity.md")
@@ -541,6 +545,16 @@ class SkillContractTests(unittest.TestCase):
             "portfolio",
             "interview",
             "supported-output relevance",
+        ):
+            self.assertIn(phrase, workflow)
+
+    def test_core_workflow_treats_inline_artifact_content_as_source_first_evidence(self):
+        workflow = read("references/core-workflow.md").lower()
+        for phrase in (
+            "exact user-supplied inline artifact content",
+            "inspectable source",
+            "named and verified against acceptance criteria before any ledger or diagnosis update",
+            "summary without contents remains unverified",
         ):
             self.assertIn(phrase, workflow)
 
