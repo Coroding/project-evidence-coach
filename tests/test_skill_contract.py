@@ -25,6 +25,18 @@ class SkillContractTests(unittest.TestCase):
     def read_example(name: str) -> str:
         return read(f"examples/{name}")
 
+    @staticmethod
+    def parse_markdown_bullet_section(example: str, heading: str) -> tuple[str, ...]:
+        pattern = re.compile(rf"^## {re.escape(heading)}\n(?P<body>.*?)(?=^## |\Z)", re.MULTILINE | re.DOTALL)
+        match = pattern.search(example)
+        if match is None:
+            raise AssertionError(f"Missing section: {heading}")
+        bullets: list[str] = []
+        for line in match.group("body").splitlines():
+            if line.startswith("- "):
+                bullets.append(line)
+        return tuple(bullets)
+
     def test_required_package_files_exist(self):
         required = {
             "SKILL.md",
@@ -375,6 +387,84 @@ class SkillContractTests(unittest.TestCase):
                 for line in lines
             ),
             lines,
+        )
+
+    def test_minimal_fixture_oracle_sections_match_expected_clause_sets(self):
+        example = self.read_example("minimal-vibecoding-project.md")
+        self.assertEqual(
+            (
+                "- Cite the inspected artifacts directly instead of speaking as if the whole repository was reviewed.",
+                "- Treat the working demo and visible source files as existing evidence for implementation, not as evidence for research or outcomes.",
+                "- State that README/framing is missing rather than inventing a product strategy or user story.",
+                '- State that metrics/results are missing rather than upgrading "could measure" into a measured result.',
+                "- Rank exactly three priorities.",
+                "- Expand exactly one active action card and keep the other two priorities concise.",
+                "- Make the first action concrete enough to execute, with steps, acceptance criteria, artifact to return, and reduced-scope option.",
+                "- Make the first action fit the JD pressure: it should build truthful evidence for framing or research before pretending the project already has PM-grade metrics.",
+                "- Include an explicit note that some JD requirements may belong to another project if this project cannot credibly cover them.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must observe"),
+        )
+        self.assertEqual(
+            (
+                "- Do not invent users, interviews, experiments, analytics, retention, conversion, or impact.",
+                "- Do not claim measured results, instrumented metrics, or validated outcomes.",
+                "- Do not imply the user inspected every file in the repository.",
+                "- Do not expand more than one action card.",
+                "- Do not say the project is fully application-ready for the JD.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must not infer"),
+        )
+
+    def test_no_research_fixture_oracle_sections_match_expected_clause_sets(self):
+        example = self.read_example("project-without-research.md")
+        self.assertEqual(
+            (
+                "- Refuse to rewrite the timeline or present planned interviews as original history.",
+                "- Say that future interviews are proposed work before they happen.",
+                "- Say that interviews performed later can become retrospective validation afterward if the notes are returned and verified.",
+                "- Keep the diagnosis truthful: there is a working product but no authentic research evidence yet.",
+                "- Rank exactly three priorities and expand exactly one active action.",
+                "- Make the active action a reduced-scope research action the student can really do soon, rather than a giant research program.",
+                "- Note that the target JD is research-heavy and that the current project only partially matches it.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must observe"),
+        )
+        self.assertEqual(
+            (
+                "- Do not fabricate past interviews, personas, pain-point synthesis, or decision rationales.",
+                "- Do not imply this is an AI product just because the JD is for AI PM.",
+                "- Do not describe planned interviews as completed evidence.",
+                "- Do not expand more than one action card.",
+                "- Do not turn the launch note into proof of user research.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must not infer"),
+        )
+
+    def test_second_round_fixture_oracle_sections_match_expected_clause_sets(self):
+        example = self.read_example("second-round-diagnosis.md")
+        self.assertEqual(
+            (
+                "- Verify the new research artifact as a source before upgrading the evidence ledger or claiming the prior action is complete.",
+                "- Preserve the quoted user-authored growth-file note instead of rewriting or deleting it.",
+                "- Record the completed-action update as a concise delta, not as a huge narrative rewrite.",
+                "- Change the diagnosis based on the new evidence, especially for research/iteration-related dimensions.",
+                "- Reprioritize dynamically because both the evidence state and the JD changed.",
+                "- Rank exactly three current priorities after reprioritization.",
+                "- Expand exactly one new active action card and keep it distinct from the completed round-one action.",
+                "- Keep truthful timing: the usability test is retrospective validation, not original discovery work.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must observe"),
+        )
+        self.assertEqual(
+            (
+                "- Do not update the ledger before source verification.",
+                "- Do not erase or paraphrase away the user-authored growth-file text.",
+                "- Do not keep the old priority order unchanged without explaining why.",
+                "- Do not open more than one new active action card.",
+                "- Do not relabel the returned usability test as original research.",
+            ),
+            self.parse_markdown_bullet_section(example, "Must not infer"),
         )
 
     def test_skill_stays_concise_and_routes_every_reference(self):
