@@ -77,6 +77,15 @@ class SkillContractTests(unittest.TestCase):
             self.assertIn(heading, combined)
         self.assertRegex(combined, r"(?i)exactly one active action")
 
+    def test_return_contract_requires_integrity_note_to_state_uncompleted_action_lifecycle(self):
+        combined = (read("SKILL.md") + "\n" + read("references/action-card-format.md")).lower()
+        self.assertIn("integrity note", combined)
+        self.assertIn("proposed future work", combined)
+        self.assertIn(
+            "if performed after the original build, it becomes retrospective validation only after the returned artifact is inspected and verified",
+            combined,
+        )
+
     def test_action_card_format_labels_unverified_actions_as_proposed_future_work(self):
         action_card = read("references/action-card-format.md").lower()
         self.assertIn("proposed future work", action_card)

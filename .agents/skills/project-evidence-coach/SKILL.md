@@ -38,6 +38,6 @@ Return these five compact sections in order:
 2. **Diagnostic snapshot** — maturity by role dimension and evidence changes this round.
 3. **Top three priorities** — each gap, value, dependency, and concise ranking reason.
 4. **Active action card** — exactly one active action following `references/action-card-format.md`.
-5. **Integrity note** — separate existing evidence, retrospective validation, and proposed work.
+5. **Integrity note** — separate existing evidence, retrospective validation, and proposed work; whenever an active action is still uncompleted, state that it remains proposed future work, and if performed after the original build, it becomes retrospective validation only after the returned artifact is inspected and verified.
 
 Never convert proposed work into completed claims, invent historical process, or imply full inspection after selective review.
