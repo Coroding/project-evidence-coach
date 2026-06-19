@@ -12,6 +12,15 @@ def read(relative: str) -> str:
 
 
 class SkillContractTests(unittest.TestCase):
+    @staticmethod
+    def parse_role_dimension_sections() -> dict[str, str]:
+        role = read("references/role-modules/ai-product-manager.md")
+        pattern = re.compile(
+            r"^## (?P<number>\d+)\. (?P<title>.+?)\n(?P<body>.*?)(?=^## \d+\. |\Z)",
+            re.MULTILINE | re.DOTALL,
+        )
+        return {match.group("title"): match.group("body") for match in pattern.finditer(role)}
+
     def test_required_package_files_exist(self):
         required = {
             "SKILL.md",
@@ -215,6 +224,52 @@ class SkillContractTests(unittest.TestCase):
         self.assertIn("job description changes", role)
         self.assertIn("not equally weighted", role)
         self.assertNotRegex(role, r"\b\d{1,3}/100\b")
+
+    def test_role_module_sections_define_contract_scaffold_and_all_maturity_anchors(self):
+        sections = self.parse_role_dimension_sections()
+        expected_titles = (
+            "Problem and context",
+            "Users and research",
+            "Requirements and prioritization",
+            "AI solution fit",
+            "Product solution and implementation",
+            "Metrics and validation",
+            "Iteration and decisions",
+            "Outcome and communication",
+        )
+        self.assertEqual(expected_titles, tuple(sections.keys()))
+        for title, body in sections.items():
+            self.assertIn("**Diagnostic question:**", body, title)
+            self.assertIn("**Acceptable artifacts:**", body, title)
+            self.assertIn("**Weak-evidence warning:**", body, title)
+            self.assertIn("**Maturity anchors:**", body, title)
+            for anchor in ("missing", "initial", "presentable", "verifiable", "application-ready"):
+                self.assertRegex(body, rf"`{anchor}`\s*:", f"{title} missing {anchor} anchor")
+
+    def test_role_module_requires_ai_fit_metrics_other_project_and_ownership_details(self):
+        role = read("references/role-modules/ai-product-manager.md").lower()
+        self.assertRegex(role, r"(another|other) project should support that requirement")
+
+        sections = self.parse_role_dimension_sections()
+        ai_fit = sections["AI solution fit"].lower()
+        for phrase in (
+            "appropriateness",
+            "model",
+            "data",
+            "prompt",
+            "workflow",
+            "limitations",
+            "risks",
+        ):
+            self.assertIn(phrase, ai_fit)
+
+        metrics = sections["Metrics and validation"].lower()
+        for phrase in ("product value", "ai quality", "failure cases", "latency", "cost"):
+            self.assertIn(phrase, metrics)
+
+        implementation = sections["Product solution and implementation"].lower()
+        self.assertIn("working artifact evidence", implementation)
+        self.assertIn("contribution/ownership evidence", implementation)
 
     def test_examples_cover_all_release_scenarios(self):
         examples = "\n".join(

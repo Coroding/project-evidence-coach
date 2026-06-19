@@ -50,7 +50,7 @@ Use this module after requirements have been normalized from the target job desc
 
 ## 4. AI solution fit
 
-- **Diagnostic question:** Is there evidence that AI was the right tool for the product problem, with clear model, data, prompt, and workflow choices plus limitations and risks?
+- **Diagnostic question:** Is there evidence that AI was the right tool for the product problem, with clear AI appropriateness, model, data, prompt, and workflow choices plus limitations and risks?
 - **Acceptable artifacts:** AI feature brief, model comparison notes, prompt or system-design docs, eval notes, fallback rules, failure-case catalog, data assumptions, privacy or safety notes, architecture diagram.
 - **Weak-evidence warning:** "We added AI because it was cool" or "it uses GPT" is not enough; the record must explain why AI is appropriate and what constraints it introduces.
 - **Maturity anchors:**
