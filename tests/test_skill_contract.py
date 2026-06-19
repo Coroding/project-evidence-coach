@@ -65,6 +65,20 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(label, integrity.lower())
 
+    def test_integrity_reference_blocks_unsupported_exports(self):
+        integrity = read("references/evidence-integrity.md").lower()
+        for phrase in (
+            "do not export",
+            "explicit user confirmation",
+            "truthful timing",
+            "ownership blocked",
+            "conflicting artifacts",
+            "resume",
+            "portfolio",
+            "interview",
+        ):
+            self.assertIn(phrase, integrity)
+
     def test_growth_template_has_stable_sections(self):
         template = read("assets/project-growth-template.md")
         for heading in (
