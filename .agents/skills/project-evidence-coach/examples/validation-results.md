@@ -10,7 +10,7 @@ This file records the isolated forward behavioral validation outcomes for Task 8
   - research response: `.git/sdd/final-enabled-research-response-v2.md`
   - second-round response: `.git/sdd/final-enabled-second-response.md`
   - second-round growth update: `.git/sdd/final-enabled-second-growth.md`
-- Recorded baseline score summaries below are preserved exactly as supplied. The detailed oracle checklists map those isolated runs onto the current fixture/oracle text and mark only the previously recorded misses as `FAIL`.
+- Canonical score summaries below are recomputed from the displayed current-oracle checklists. For baseline-minimal, the original self-score was `7/8`, but when remapped against the current complete 9-bullet oracle the canonical recorded score is `8/9`.
 
 ## Baseline vs enabled comparison
 
@@ -24,7 +24,7 @@ This file records the isolated forward behavioral validation outcomes for Task 8
 
 ### Baseline - minimal
 
-- Score summary: Must observe 7/8, Must not infer 5/5, five sections FAIL, exactly-one-action PASS, overall FAIL
+- Score summary: Must observe 8/9, Must not infer 5/5, five sections FAIL, exactly-one-action PASS, overall FAIL
 - Raw evidence: none saved for baseline
 - Concise observation: action lacked full steps, acceptance criteria, artifact-to-return, and reduced-scope handling.
 
@@ -120,7 +120,7 @@ This file records the isolated forward behavioral validation outcomes for Task 8
 
 ### Baseline - second
 
-- Score summary: Must observe 3/8, Must not infer 5/5, five sections FAIL, exactly-one-action PASS structurally but no action card, overall FAIL
+- Score summary: Must observe 3/8, Must not infer 5/5, five sections FAIL, exactly-one-action FAIL, overall FAIL
 - Raw evidence: none saved for baseline
 - Concise observation: missed source verification, diagnosis change, dynamic reprioritization, exactly three priorities, and a distinct new action card.
 
@@ -140,7 +140,7 @@ This file records the isolated forward behavioral validation outcomes for Task 8
 | Must not infer | Do not open more than one new active action card. | PASS |
 | Must not infer | Do not relabel the returned usability test as original research. | PASS |
 | Output contract | Five sections present | FAIL |
-| Output contract | Exactly one action expanded | PASS structurally but no action card |
+| Output contract | Exactly one action expanded | FAIL |
 
 ### Final skill-enabled - second
 
