@@ -18,7 +18,8 @@
 
 | ID | normalized requirement | source wording or location | importance | current support status | relevant evidence IDs |
 | --- | --- | --- | --- | --- | --- |
-| R-001 | Not provided | Not provided | Not provided | Not provided | Not provided |
+
+<!-- Add requirement rows only after real requirements are identified. -->
 
 ## Evidence ledger
 
@@ -26,11 +27,14 @@
 
 | ID | supported claim or capability | source | temporal status | confidence | unresolved questions | supported outputs | linked requirements |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| E-001 | No evidence recorded yet | Not provided | proposed | low | Not provided | Not provided | R-001 |
+
+<!-- Add evidence rows only after real evidence is inspected or explicitly confirmed. -->
+
+- No evidence recorded yet.
 
 ## Current diagnosis
 
-<!-- Use only missing, initial, presentable, verifiable, or application-ready. Preserve user-authored commentary. -->
+<!-- Use only missing, initial, presentable, verifiable, or application-ready for dimensions. Keep project readiness separate. -->
 
 - **Problem and context:** missing
 - **Users and research:** missing
@@ -48,15 +52,16 @@
 
 | ID | gap | dependency or blocker | ranking reason |
 | --- | --- | --- | --- |
-| A-001 | Not provided | Not provided | Not provided |
-| A-002 | Not provided | Not provided | Not provided |
-| A-003 | Not provided | Not provided | Not provided |
+
+<!-- Add priority rows only after meaningful gaps are ranked. -->
+
+- No priority gaps queued yet.
 
 ## Active action card
 
 <!-- Keep exactly one active action. Update this card by stable ID and preserve user-added context. -->
 
-- **Action ID:** A-001
+- **Action ID:** Not provided
 - **Objective:** No action selected yet
 - **Why now:** Not provided
 - **Steps:** Not provided

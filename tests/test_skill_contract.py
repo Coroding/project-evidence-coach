@@ -128,6 +128,36 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertNotIn(forbidden, template)
 
+    def test_growth_template_starts_with_empty_tables_and_no_placeholder_ids(self):
+        template = read("assets/project-growth-template.md")
+        for table in (
+            "| ID | normalized requirement | source wording or location | importance | current support status | relevant evidence IDs |\n| --- | --- | --- | --- | --- | --- |",
+            "| ID | supported claim or capability | source | temporal status | confidence | unresolved questions | supported outputs | linked requirements |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+            "| ID | gap | dependency or blocker | ranking reason |\n| --- | --- | --- | --- |",
+        ):
+            self.assertIn(table, template)
+        for forbidden in (
+            "| R-001 |",
+            "| E-001 |",
+            "| A-001 |",
+            "- **Action ID:** A-001",
+        ):
+            self.assertNotIn(forbidden, template)
+
+    def test_growth_template_keeps_safe_empty_states_outside_tables(self):
+        template = read("assets/project-growth-template.md")
+        for phrase in (
+            "- No evidence recorded yet.",
+            "- No priority gaps queued yet.",
+            "- **Objective:** No action selected yet",
+            "- **Project readiness:** not ready",
+        ):
+            self.assertIn(phrase, template)
+        self.assertIn(
+            "<!-- Use only missing, initial, presentable, verifiable, or application-ready for dimensions. Keep project readiness separate. -->",
+            template,
+        )
+
     def test_role_module_has_all_eight_dimensions(self):
         role = read("references/role-modules/ai-product-manager.md")
         dimensions = (
