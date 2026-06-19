@@ -283,6 +283,16 @@ class SkillContractTests(unittest.TestCase):
         for marker in ("SCENARIO-1", "SCENARIO-2", "SCENARIO-3", "SCENARIO-4", "SCENARIO-5", "SCENARIO-6"):
             self.assertIn(marker, examples)
 
+    def test_each_example_defines_behavioral_oracle(self):
+        for path in (
+            "examples/minimal-vibecoding-project.md",
+            "examples/project-without-research.md",
+            "examples/second-round-diagnosis.md",
+        ):
+            example = read(path)
+            for heading in ("## Fixture", "## Prompt", "## Must observe", "## Must not infer"):
+                self.assertIn(heading, example)
+
     def test_skill_stays_concise_and_routes_every_reference(self):
         skill = read("SKILL.md")
         self.assertLess(len(skill.splitlines()), 500)
