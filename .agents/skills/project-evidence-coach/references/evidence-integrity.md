@@ -90,6 +90,13 @@ Use exactly these metric labels:
 | retrospective validation | allowed only with truthful timing | allowed only with truthful timing | allowed only with truthful timing | never imply the validation existed earlier than it did |
 | proposed future work | blocked | blocked | blocked as evidence; discuss only as next step | do not export |
 
+Exact export semantics:
+
+- existing verified evidence may export only when source and ownership are clear
+- partial or weak evidence does not export as a completed claim
+- retrospective validation may export only with truthful timing
+- proposed future work does not export
+
 ## Mandatory pre-export checks
 
 Before any claim is exported to a resume, portfolio, or interview artifact, verify every row has:

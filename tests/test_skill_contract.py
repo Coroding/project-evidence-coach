@@ -79,6 +79,28 @@ class SkillContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase, integrity)
 
+    def test_integrity_reference_requires_all_pre_export_fields(self):
+        integrity = read("references/evidence-integrity.md").lower()
+        for phrase in (
+            "a source",
+            "a timing label",
+            "an ownership status",
+            "a confidence level",
+            "a linked requirement",
+            "a supported output",
+        ):
+            self.assertIn(phrase, integrity)
+
+    def test_integrity_reference_defines_exact_export_rules_by_state(self):
+        integrity = read("references/evidence-integrity.md").lower()
+        for phrase in (
+            "existing verified evidence may export only when source and ownership are clear",
+            "partial or weak evidence does not export as a completed claim",
+            "retrospective validation may export only with truthful timing",
+            "proposed future work does not export",
+        ):
+            self.assertIn(phrase, integrity)
+
     def test_growth_template_has_stable_sections(self):
         template = read("assets/project-growth-template.md")
         for heading in (
