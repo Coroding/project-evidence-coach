@@ -77,6 +77,14 @@ class SkillContractTests(unittest.TestCase):
             self.assertIn(heading, combined)
         self.assertRegex(combined, r"(?i)exactly one active action")
 
+    def test_action_card_format_labels_unverified_actions_as_proposed_future_work(self):
+        action_card = read("references/action-card-format.md").lower()
+        self.assertIn("proposed future work", action_card)
+        self.assertRegex(
+            action_card,
+            r"until (?:the )?returned artifact is verified",
+        )
+
     def test_evidence_and_metric_vocabularies_are_complete(self):
         integrity = read("references/evidence-integrity.md")
         for label in (
@@ -388,6 +396,18 @@ class SkillContractTests(unittest.TestCase):
             ),
             lines,
         )
+
+    def test_second_round_fixture_includes_inline_inspectable_artifact_excerpt(self):
+        example = self.read_example("second-round-diagnosis.md")
+        for phrase in (
+            "Inline artifact excerpt for inspection:",
+            "Participant session 1",
+            "Participant session 2",
+            "Task prompt:",
+            "Raw observation:",
+            "Retrospective validation completed after original build",
+        ):
+            self.assertIn(phrase, example)
 
     def test_minimal_fixture_oracle_sections_match_expected_clause_sets(self):
         example = self.read_example("minimal-vibecoding-project.md")

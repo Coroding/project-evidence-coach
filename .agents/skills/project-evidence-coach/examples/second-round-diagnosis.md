@@ -10,6 +10,14 @@
   - Round-one diagnosis marked `Users and research` as `missing` and `Metrics and validation` as `initial`.
 - New returned artifact:
   - `research/usability-test-2026-06-18.md` with two participant sessions, task prompts, raw observations, and a section labeled `Retrospective validation completed after original build`.
+  - Inline artifact excerpt for inspection:
+    - `Retrospective validation completed after original build`
+    - Participant session 1
+      - Task prompt: "Save a prompt revision, then explain what you think happened."
+      - Raw observation: "Participant expected an autosave toast and hesitated for 11 seconds before reopening the history panel to confirm the change."
+    - Participant session 2
+      - Task prompt: "Reuse yesterday's prompt version for a new draft."
+      - Raw observation: "Participant found version history but said the save-confirmation state was too subtle to trust on first use."
   - `screenshots/usability-fix.png` showing the revised save-confirmation state.
 - Changed target JD:
   - the new internship posting still values research, but now emphasizes structured communication and iteration over heavy analytics ownership.
