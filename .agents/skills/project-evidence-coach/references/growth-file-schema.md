@@ -26,6 +26,14 @@ Never renumber existing identifiers. Update by stable identifier so merges and u
 
 ## Allowed values
 
+### Persistent integrity fields
+
+Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
+
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+
+Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+
 ### Evidence timing
 
 Allowed `temporal status` values:
@@ -73,7 +81,7 @@ Each row must map one normalized requirement to the evidence that currently supp
 
 Use this exact header row:
 
-`ID | supported claim or capability | source | temporal status | confidence | unresolved questions | supported outputs | linked requirements`
+`ID | supported claim or capability | source | evidence state | temporal status | ownership status | confidence | metric label | unresolved questions | supported outputs | linked requirements`
 
 Each row must preserve uncertainty explicitly instead of silently upgrading weak evidence.
 
@@ -89,7 +97,7 @@ Keep one row per important normalized requirement using the stable requirement I
 
 ### Evidence ledger
 
-Keep one row per evidence item using the stable evidence IDs and the exact table contract above.
+Keep one row per evidence item using the stable evidence IDs and the exact table contract above. Every row must persist the evidence state, ownership status, and metric label used by the integrity and export gates.
 
 ### Current diagnosis
 

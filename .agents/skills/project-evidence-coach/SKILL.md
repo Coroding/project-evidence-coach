@@ -1,6 +1,6 @@
 ---
 name: project-evidence-coach
-description: Use when a student or early-career candidate has a real but incomplete project and needs artifact-level coaching against a target internship job description, including evidence gaps, truthful validation work, one executable next action, persistent project growth tracking, resume evidence, portfolio cases, or interview stories.
+description: Use when a student or early-career candidate needs artifact-level coaching for one real project against an AI product manager internship or role; do not use for generic resume rewriting, choosing among multiple projects, non-AI-product-manager roles, or inventing missing evidence.
 ---
 
 # Project Evidence Coach
@@ -37,7 +37,7 @@ Return these five compact sections in order:
 1. **Round judgment** — one sentence naming the most important issue.
 2. **Diagnostic snapshot** — maturity by role dimension and evidence changes this round.
 3. **Top three priorities** — each gap, value, dependency, and concise ranking reason.
-4. **Active action card** — exactly one active action following `references/action-card-format.md`.
+4. **Active action card** — exactly one active action that explicitly includes objective, why now, concrete steps, method or template, acceptance criteria, artifact to return, supported job requirement, estimated effort, and reduced-scope version.
 5. **Integrity note** — separate existing evidence, retrospective validation, and proposed work; whenever an active action is still uncompleted, state that it remains proposed future work, and if performed after the original build, it becomes retrospective validation only after the returned artifact is inspected and verified.
 
 Never convert proposed work into completed claims, invent historical process, or imply full inspection after selective review.

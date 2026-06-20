@@ -24,9 +24,14 @@
 ## Evidence ledger
 
 <!-- Use stable evidence IDs such as E-001. Record only inspected or explicitly confirmed evidence. -->
+Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
 
-| ID | supported claim or capability | source | temporal status | confidence | unresolved questions | supported outputs | linked requirements |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+
+Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+
+| ID | supported claim or capability | source | evidence state | temporal status | ownership status | confidence | metric label | unresolved questions | supported outputs | linked requirements |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 <!-- Add evidence rows only after real evidence is inspected or explicitly confirmed. -->
 

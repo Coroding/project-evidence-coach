@@ -2,6 +2,14 @@
 
 Use this reference to classify every observation before it enters the evidence ledger or supports a resume, portfolio, or interview claim.
 
+## Canonical persistent vocabularies
+
+Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
+
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+
+Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+
 ## Evidence states
 
 ### 1. Existing verified evidence
@@ -68,8 +76,10 @@ Use only:
 
 ## Ownership and conflicts
 
-- Ownership must identify whether the user led, contributed, assisted, or cannot yet verify the contribution.
-- If contribution is unresolved, mark `ownership blocked` and do not upgrade the claim.
+- Ownership must use `led`, `contributed`, or `assisted` when attributable.
+- Use `ownership uncertain` when attribution is unresolved but may still be resolved through confirmation or an attributable artifact.
+- Use `ownership blocked` when the confirmation or attributable artifact needed to resolve ownership cannot currently be obtained.
+- Claims marked `ownership uncertain` or `ownership blocked` do not upgrade and `do not export`.
 - If artifacts disagree, keep both observations visible as `conflicting artifacts` until resolved.
 - Require explicit user confirmation before using a collaborator-owned outcome as the user's claim.
 
@@ -80,6 +90,7 @@ Use exactly these metric labels:
 - `suggested metric`: a reasonable future measure with no collected data yet
 - `instrumented metric`: tracking exists, but no trustworthy outcome is established yet
 - `measured result`: a collected outcome tied to a source and scope
+- `not applicable`: the evidence item makes no metric or result claim
 
 ## Export matrix
 
@@ -102,15 +113,17 @@ Exact export semantics:
 Before any claim is exported to a resume, portfolio, or interview artifact, verify every row has:
 
 - a source
+- an evidence state
 - a timing label
 - an ownership status
 - a confidence level
+- a metric label
 - a linked requirement
 - a supported output
 
 If any required field is missing, `do not export`.
 
-If ownership remains unresolved, label the claim `ownership blocked` and `do not export`.
+If ownership remains unresolved, label the claim `ownership uncertain` or `ownership blocked` according to the definitions above and `do not export`.
 
 If the claim depends on `conflicting artifacts`, require resolution before using `conflicting artifacts` to support any export.
 

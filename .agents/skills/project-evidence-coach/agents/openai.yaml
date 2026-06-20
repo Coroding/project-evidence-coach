@@ -1,4 +1,0 @@
-interface:
-  display_name: "Project Evidence Coach"
-  short_description: "Turn project artifacts into traceable job evidence"
-  default_prompt: "Use $project-evidence-coach to inspect my project against this job description and give me one evidence-building action."
