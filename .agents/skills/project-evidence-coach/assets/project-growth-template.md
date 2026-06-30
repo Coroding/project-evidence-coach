@@ -26,9 +26,9 @@
 <!-- Use stable evidence IDs such as E-001. Record only inspected or explicitly confirmed evidence. -->
 Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
 
-Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership confirmed` | `ownership uncertain` | `tool-assisted` | `not owned` | `source missing` | `ownership blocked`
 
-Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+Allowed `metric label` values: `research finding` | `prototype artifact` | `measured product metric` | `suggested metric` | `not applicable`
 
 | ID | supported claim or capability | source | evidence state | temporal status | ownership status | confidence | metric label | unresolved questions | supported outputs | linked requirements |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,6 +50,25 @@ Allowed `metric label` values: `suggested metric` | `instrumented metric` | `mea
 - **Iteration and decisions:** missing
 - **Outcome and communication:** missing
 - **Project readiness:** not ready
+
+### Case readiness score
+
+<!-- Repository-to-resume-package mode uses exactly eight dimensions, each scored 0-2, 总分 16 分. -->
+
+| Dimension | Score | Evidence | Caveat |
+| --- | --- | --- | --- |
+| 问题与目标用户 | 0 = 缺失 | Not provided | Not provided |
+| 用户研究信号 | 0 = 缺失 | Not provided | Not provided |
+| 产品范围与用户流程 | 0 = 缺失 | Not provided | Not provided |
+| PM 优先级与决策推理 | 0 = 缺失 | Not provided | Not provided |
+| AI / 技术方案适配 | 0 = 缺失 | Not provided | Not provided |
+| 可运行原型或 Demo | 0 = 缺失 | Not provided | Not provided |
+| 个人贡献与 ownership | 0 = 缺失 | Not provided | Not provided |
+| 指标、验证或质量检查 | 0 = 缺失 | Not provided | Not provided |
+
+- **Score meanings:** `0 = 缺失`; `1 = 有弱证据或需要 caveat`; `2 = 证据较充分，可展示`
+- **Total:** 0 / 16
+- **Readiness bands:** `14-16 strong`; `10-13 usable-with-caveats`; `6-9 evidence-blocked`; `0-5 not-enough-source`
 
 ## Priority queue
 

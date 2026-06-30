@@ -4,8 +4,10 @@
 
 1. Inspect the supplied repository, files, screenshots, notes, links, prior growth record, any attached job description, and the user's intended output goal before asking questions.
 2. Name what was inspected. If the inspection was selective, disclose what remains unexamined and avoid implying full coverage.
-3. If the project material is inaccessible or too thin to support coaching, request the smallest useful evidence set and pause further judgment.
-4. Normalize the intended output goal to `resume`, `portfolio`, or `interview` when possible. Use it to shape supported-output relevance, examples, and action framing without overriding JD importance or evidence integrity.
+3. If the user supplies a GitHub/repo/project URL or asks for resume, portfolio, interview, or PM case materials, use `repository-to-resume-package mode` and the fallback ladder in `repository-to-resume-workflow.md`.
+4. Clone failure is not fatal when GitHub page, README-visible metadata, file tree, demo/deployment link, or user-pasted material is available. Continue with limited inspection and generate the package with caveats.
+5. Pause case-body generation only when the source is fully blocked: no repository page, README, project description, file list, demo/deployment link, screenshot, or pasted material is accessible.
+6. Normalize the intended output goal to `resume`, `portfolio`, or `interview` when possible. Use it to shape supported-output relevance, examples, and action framing without overriding JD importance or evidence integrity.
 
 ## Job-description normalization
 
@@ -86,10 +88,11 @@ Application readiness remains scoped to the evaluated job description only. It d
 | Edge case | Required behavior |
 | --- | --- |
 | No job description | Use the AI product manager baseline provisionally, state that application-specific readiness is withheld, and avoid JD-specific ranking language. |
-| Insufficient project material | Request the smallest useful evidence set, limit claims to what is inspectable, and avoid filling gaps with assumptions. |
+| Insufficient project material | If any README, repo metadata, file tree, demo/deployment link, screenshot, or pasted material is available, generate a limited-inspection package with caveats. Request the smallest useful evidence set only as backlog/action material, not as the only result. |
+| Source-blocked repository | Stop case-body generation only when no inspectable source exists. Return the smallest useful evidence checklist and an active action. |
 | Large repository | Sample intentionally, disclose the inspected slice, and name what remains unexamined. |
 | No real users | Prefer proxy evidence such as test sessions, expert review, or reasoned validation plans without inventing user research history. |
-| No historical data | Separate suggested metrics from measured results and propose a validation path instead of retrofitting outcomes. |
+| No historical data | Separate suggested metrics from measured product metrics and propose a validation path instead of retrofitting outcomes. |
 | Limited user time | Reduce scope to the smallest action that still creates valid evidence inside the stated budget. |
 | Project/JD mismatch | State the mismatch directly, rank bridgeable gaps first, and avoid overstating readiness for the target role. |
 | Unverifiable ownership | Mark ownership as uncertain, request confirmation or attributable artifacts, and avoid promoting the work into verified evidence. |

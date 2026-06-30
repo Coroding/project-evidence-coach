@@ -66,6 +66,10 @@ Each coaching round returns:
 
 Detailed workflow, integrity, persistence, and AI product manager evaluation rules are loaded from `references/` only when needed. The reusable growth-record starter is in `assets/project-growth-template.md`.
 
+## Skill Showcase
+
+A static demo page is available at `docs/skill-showcase/index.html`. It shows how Project Evidence Coach converts a real GitHub repository into a PM resume/case package, including prompt, outputs, evaluation scorecard, iteration log, and MVP/P0/P1 roadmap.
+
 ## License
 
 See [LICENSE](LICENSE).

@@ -75,14 +75,14 @@ Use this module after requirements have been normalized from the target job desc
 ## 6. Metrics and validation
 
 - **Diagnostic question:** Is there credible evidence of how success was defined and checked, including product value, AI quality, failure cases, latency, and cost when relevant?
-- **Acceptable artifacts:** Metric definitions, dashboard screenshots, experiment notes, evaluation tables, benchmark logs, latency or cost traces, error taxonomy, usability outcomes, instrumentation plan, measured results.
+- **Acceptable artifacts:** Metric definitions, dashboard screenshots, experiment notes, evaluation tables, benchmark logs, latency or cost traces, error taxonomy, usability outcomes, research findings, prototype artifacts, measured product metrics, or suggested metric plans.
 - **Weak-evidence warning:** Claimed impact without metric definition, raw measurement, or honest labeling as suggested versus instrumented versus measured is weak evidence.
 - **Maturity anchors:**
   - `missing`: No success metric, validation method, or measurement evidence exists.
   - `initial`: Metrics are named, but they are mostly aspirational or not tied to evidence.
   - `presentable`: Some product-value or AI-quality validation exists, but failure cases, latency, cost, or measurement rigor are incomplete.
   - `verifiable`: Traceable artifacts show how product value and AI quality were checked, including relevant failure cases, latency, and cost considerations.
-  - `application-ready`: Validation evidence is strong enough for this JD and can honestly distinguish suggested metrics, instrumented metrics, and measured results.
+  - `application-ready`: Validation evidence is strong enough for this JD and can honestly distinguish research findings, prototype artifacts, suggested metrics, and measured product metrics.
 
 ## 7. Iteration and decisions
 

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Evidence Coach | GitHub 项目到产品经理求职资料包的 Skill Showcase</title>
+    <meta
+      name="description"
+      content="展示 Project Evidence Coach 如何把 dont-just-save 这样的真实 GitHub 项目转译为产品经理简历、作品集和面试资料包。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview">Project Evidence Coach</a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#overview">Overview</a>
+        <a href="#prompt">Prompt</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#repo-to-resume">Repo to Resume</a>
+        <a href="#outputs">Outputs</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#iteration">Iteration</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="overview" class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Skill Showcase</p>
+            <h1>Project Evidence Coach</h1>
+            <h2>GitHub 项目到产品经理求职资料包的 Skill Showcase</h2>
+            <p id="heroSubtitle" class="subtitle"></p>
+            <p id="heroOneLiner" class="lead"></p>
+            <p id="heroNote" class="hero-note"></p>
+            <div class="hero-actions">
+              <a id="primaryCta" class="button primary" href="#workflow">View Workflow</a>
+              <a id="secondaryCta" class="button secondary" href="#repo-to-resume">See Resume Output</a>
+            </div>
+          </div>
+          <div id="heroStats" class="stats-grid" aria-label="项目概览指标"></div>
+        </div>
+      </section>
+
+      <section id="prompt" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Prompt</p>
+          <h2>我如何调用 Skill</h2>
+          <p class="muted">输入项目 URL 和目标岗位，其余证据分级、输出边界和 fallback 由 Skill 内置。</p>
+        </div>
+        <div class="prompt-layout">
+          <button id="promptBox" class="prompt-box" type="button" aria-label="点击复制 prompt">
+            <span class="copy-hint">点击复制 prompt</span>
+            <pre id="promptText"></pre>
+          </button>
+          <div class="prompt-notes">
+            <h3>调用规则</h3>
+            <ul id="promptNotes" class="check-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>Skill 工作流</h2>
+          <p class="muted">从仓库地址到求职材料，核心不是“润色”，而是把可验证项目证据转成 PM 叙事。</p>
+        </div>
+        <div id="workflowSteps" class="workflow" aria-label="Skill 工作流"></div>
+      </section>
+
+      <section id="repo-to-resume" class="section repo-section">
+        <div class="section-heading wide">
+          <p class="eyebrow">From Repo to Resume</p>
+          <h2>From Repo to Resume｜从项目库到求职材料</h2>
+          <p class="muted">以 dont-just-save 为例，展示 Skill 如何把一个 GitHub 项目转译成简历、作品集和面试可用材料。</p>
+        </div>
+
+        <div class="repo-grid">
+          <article class="repo-card">
+            <p class="card-kicker">Input Project / 输入项目</p>
+            <h3 id="repoName"></h3>
+            <p id="repoOneSentence" class="muted"></p>
+            <div id="repoLinks" class="link-row"></div>
+            <div>
+              <p class="mini-title">Skill 读取的材料</p>
+              <div id="sourceChips" class="chip-row"></div>
+            </div>
+          </article>
+
+          <article class="positioning-card">
+            <p class="card-kicker">Skill Extracted Positioning</p>
+            <div class="quote-card">
+              <span>Skill 输出的项目介绍</span>
+              <p id="skillPositioning"></p>
+            </div>
+            <div class="quote-card resume-ready">
+              <span>更适合简历 / 作品集的中文描述</span>
+              <p id="resumePositioning"></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="translation-panel">
+          <div class="section-heading compact">
+            <p class="eyebrow">PM Case Translation</p>
+            <h3>产品经理案例转译</h3>
+          </div>
+          <div class="translation-grid">
+            <article>
+              <h4>原项目库表达</h4>
+              <ul id="repoExpression"></ul>
+            </article>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <article>
+              <h4>Skill 转译后表达</h4>
+              <ul id="pmExpression"></ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="resume-portfolio-grid">
+          <article class="resume-output">
+            <div class="section-heading compact">
+              <p class="eyebrow">Resume Output</p>
+              <h3>简历输出</h3>
+            </div>
+            <div id="resumeOutputs" class="resume-list"></div>
+            <div class="blocked-box">
+              <p class="mini-title">不能写成</p>
+              <div id="blockedResumeClaims" class="blocked-tags"></div>
+            </div>
+          </article>
+
+          <article class="portfolio-output">
+            <div class="section-heading compact">
+              <p class="eyebrow">Portfolio Output</p>
+              <h3>作品集结构</h3>
+            </div>
+            <div id="portfolioOutline" class="outline-stack"></div>
+          </article>
+        </div>
+
+        <div class="interview-boundary-grid">
+          <article class="pitch-card">
+            <p class="card-kicker">Interview Output</p>
+            <h3>30 秒 pitch</h3>
+            <p id="interviewPitch"></p>
+          </article>
+          <article class="boundary-card">
+            <p class="card-kicker">Evidence Boundary</p>
+            <h3>面试表达与证据边界</h3>
+            <div class="boundary-columns">
+              <div>
+                <h4>可以说</h4>
+                <ul id="safeClaims"></ul>
+              </div>
+              <div>
+                <h4>不能说</h4>
+                <ul id="blockedClaims"></ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="outputs" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Outputs</p>
+          <h2>资料包文件夹</h2>
+          <p id="outputsIntro" class="muted"></p>
+        </div>
+        <div class="folder-shell">
+          <div class="folder-tab">career-case-package/dont-just-save/</div>
+          <div id="outputCards" class="output-grid"></div>
+        </div>
+      </section>
+
+      <section id="evaluation" class="section evaluation-section">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation</p>
+          <h2>我如何评估输出质量</h2>
+        </div>
+        <div class="score-summary">
+          <div>
+            <p class="score-label">Case Readiness Score</p>
+            <p id="scoreValue" class="score-value">12 / 16</p>
+            <p id="scoreDefinition" class="muted"></p>
+          </div>
+          <div class="score-badge" aria-label="总分 12 / 16">
+            <span>12</span>
+            <small>/ 16</small>
+          </div>
+        </div>
+        <div id="scoreBars" class="score-bars"></div>
+        <div class="quality-grid">
+          <div>
+            <h3>强项</h3>
+            <ul id="strengths" class="tag-list"></ul>
+          </div>
+          <div>
+            <h3>弱项</h3>
+            <ul id="weaknesses" class="tag-list warning"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="comparison" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Before / After</p>
+          <h2>输出前后对比</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-panel before">
+            <h3>Before</h3>
+            <ul id="beforeList"></ul>
+          </article>
+          <article class="compare-panel after">
+            <h3>After</h3>
+            <ul id="afterList"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="iteration" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Iteration</p>
+          <h2>迭代优化记录</h2>
+        </div>
+        <div id="iterationTimeline" class="timeline"></div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>MVP / P0 / P1 Roadmap</h2>
+        </div>
+        <div id="roadmapGrid" class="roadmap-grid"></div>
+      </section>
+
+      <section id="boundaries" class="section boundary-section">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence Boundary</p>
+          <h2>总证据边界</h2>
+        </div>
+        <ul id="evidenceBoundaries" class="boundary-list"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Project Evidence Coach Showcase · 只读转译真实项目证据，不编造增长、AI 效果或商业结果。</p>
+    </footer>
+
+    <div class="contract-markers" aria-hidden="true">
+      From Repo to Resume 从项目库到求职材料 12 / 16
+      04_PRODUCT_DECISION_LOG.md 12_OWNERSHIP_AND_SOURCE_APPENDIX.md
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

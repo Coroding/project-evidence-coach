@@ -1,6 +1,13 @@
 # Growth file schema
 
-Use this schema when creating or updating `project-evidence/PROJECT_GROWTH.md`.
+Use this schema when creating or updating a `PROJECT_GROWTH.md` growth record.
+
+Default locations:
+
+- Ordinary coaching round: `project-evidence/PROJECT_GROWTH.md`
+- Repository-to-resume-package mode: `career-case-package/<project-slug>/PROJECT_GROWTH.md`
+
+In repository-to-resume-package mode, keep the growth record inside the package directory. Do not use it as the only deliverable.
 
 ## Stable section contract
 
@@ -30,9 +37,9 @@ Never renumber existing identifiers. Update by stable identifier so merges and u
 
 Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
 
-Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership confirmed` | `ownership uncertain` | `tool-assisted` | `not owned` | `source missing` | `ownership blocked`
 
-Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+Allowed `metric label` values: `research finding` | `prototype artifact` | `measured product metric` | `suggested metric` | `not applicable`
 
 ### Evidence timing
 
@@ -51,6 +58,32 @@ Allowed maturity values:
 - `presentable`
 - `verifiable`
 - `application-ready`
+
+### Case readiness score
+
+Repository-to-resume-package mode uses exactly eight dimensions, each scored 0-2, 总分 16 分:
+
+1. 问题与目标用户
+2. 用户研究信号
+3. 产品范围与用户流程
+4. PM 优先级与决策推理
+5. AI / 技术方案适配
+6. 可运行原型或 Demo
+7. 个人贡献与 ownership
+8. 指标、验证或质量检查
+
+Score meanings:
+
+- `0 = 缺失`
+- `1 = 有弱证据或需要 caveat`
+- `2 = 证据较充分，可展示`
+
+Readiness bands:
+
+- `14-16 strong`
+- `10-13 usable-with-caveats`
+- `6-9 evidence-blocked`
+- `0-5 not-enough-source`
 
 ## Merge and user-edit preservation rules
 

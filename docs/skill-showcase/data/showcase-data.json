@@ -1,0 +1,441 @@
+{
+  "hero": {
+    "name": "Project Evidence Coach",
+    "title": "GitHub 项目到产品经理求职资料包的 Skill Showcase",
+    "subtitle": "一次真实项目实验：输入 dont-just-save 仓库和“产品经理实习”目标岗位，只读检查项目库，输出 PM case package，并用证据评分持续迭代 Skill。",
+    "oneLiner": "把真实 GitHub 项目转译成有证据边界的简历、作品集和面试材料。",
+    "note": "本页展示的是 Project Evidence Coach Skill 的能力，不是 dont-just-save 的商业成功证明。",
+    "primaryCta": {
+      "label": "View Workflow",
+      "href": "#workflow"
+    },
+    "secondaryCta": {
+      "label": "See Resume Output",
+      "href": "#repo-to-resume"
+    },
+    "stats": [
+      {
+        "label": "Input",
+        "value": "1 个 GitHub 项目 URL",
+        "detail": "dont-just-save"
+      },
+      {
+        "label": "Output",
+        "value": "14 个求职材料文件",
+        "detail": "resume / portfolio / interview"
+      },
+      {
+        "label": "Evaluation",
+        "value": "12 / 16",
+        "detail": "usable-with-caveats"
+      }
+    ]
+  },
+  "prompt": {
+    "text": "$project-evidence-coach\n\n我有一个项目：https://github.com/Coroding/dont-just-save\n我想投产品经理实习。请只读分析这个项目库，不修改原项目库，帮我输出一套用于简历、作品集和面试准备的产品经理案例资料包。",
+    "notes": [
+      "用户只需要提供项目 URL + 目标岗位。",
+      "Skill 自动进入 repository-to-resume-package mode。",
+      "仓库可读时输出完整资料包；只能浅层读取时输出 limited-inspection 版本。",
+      "所有关键 claim 标注证据状态、置信度和导出边界。",
+      "目标 GitHub 仓库始终只读，不修改 README、源码、docs 或部署配置。"
+    ]
+  },
+  "workflow": [
+    {
+      "name": "GitHub Repo URL",
+      "description": "输入真实项目地址和目标岗位。"
+    },
+    {
+      "name": "Source Inspection",
+      "description": "读取 README、docs、demo、代码、部署配置和 git metadata。"
+    },
+    {
+      "name": "Evidence Ledger",
+      "description": "把每个 claim 连接到来源、证据状态、置信度和导出决策。"
+    },
+    {
+      "name": "Readiness Scorecard",
+      "description": "用 8 个维度评估求职案例证据完整度。"
+    },
+    {
+      "name": "PM Case Package",
+      "description": "把项目转译为问题、用户、流程、决策和范围边界。"
+    },
+    {
+      "name": "Resume / Portfolio / Interview",
+      "description": "输出中文简历 bullet、作品集结构和面试表达。"
+    },
+    {
+      "name": "Export Boundary Check",
+      "description": "区分可直接用、需 caveat、需确认 ownership、禁用表达。"
+    },
+    {
+      "name": "Next Evidence Action",
+      "description": "告诉用户下一步最值得补哪一类证据。"
+    }
+  ],
+  "repoToResume": {
+    "inputProject": {
+      "name": "dont-just-save / 别只收藏",
+      "githubUrl": "https://github.com/Coroding/dont-just-save",
+      "githubPagesUrl": "https://coroding.github.io/dont-just-save/",
+      "vercelUrl": "https://dont-just-save.vercel.app/",
+      "oneSentence": "面向刚开始做知识型内容创作的新手创作者，把有启发的内容保存成选题卡片，并在收集箱和复盘页筛选为待制作、以后再看或放弃。",
+      "sources": [
+        "README",
+        "docs",
+        "interactive demo",
+        "product video",
+        "index.html",
+        "vercel.json",
+        "git metadata"
+      ]
+    },
+    "positioning": {
+      "skillOutput": "「别只收藏」是一个面向内容创作者的 AI 选题与素材管理原型，解决“收藏了很多内容，但难以转化为可执行视频创作任务”的问题。",
+      "resumeReady": "围绕内容创作者的创作前链路，设计“保存内容—补充创作启发—模拟 AI 识别创作用途—生成任务卡—复盘筛选”的 MVP 闭环，将分散收藏转化为可执行的创作任务。"
+    },
+    "translation": {
+      "repoExpression": [
+        "有 GitHub 仓库、README、demo、docs、产品视频。",
+        "展示了一个静态交互原型。",
+        "说明用户可以保存内容并筛选状态。"
+      ],
+      "pmExpression": [
+        "用户问题：收藏后的创作意图丢失。",
+        "目标用户：知识型内容创作新手。",
+        "产品判断：不做普通收藏夹，聚焦“收藏到创作任务转化”。",
+        "MVP 闭环：保存内容 -> 补创作启发 -> 模拟 AI 建议 -> 生成任务卡 -> 复盘。",
+        "AI 边界：当前是模拟 AI 流程，不声称真实 API 或模型效果。"
+      ]
+    },
+    "resumeOutputs": [
+      {
+        "label": "确认 ownership 后可使用",
+        "text": "设计并制作「别只收藏」产品经理作品集 Demo，聚焦内容创作者“收藏后难以转化为创作任务”的场景，完成从问题定义、P0/P1 范围拆分到交互原型展示的案例闭环。"
+      },
+      {
+        "label": "确认 ownership 后可使用",
+        "text": "基于 7 人小样本探索调研，整理新手创作者在选题、标题、封面、脚本结构等素材收藏后的转化断点，并据此确定“保存内容—补充创作启发—生成任务卡—复盘筛选”的核心流程。"
+      },
+      {
+        "label": "确认 ownership 后可使用",
+        "text": "搭建静态交互原型，覆盖灵感记录、模拟 AI 识别、灵感收集箱、任务池和复盘页，用浏览器本地存储模拟数据流，支撑作品集演示和面试讲解。"
+      }
+    ],
+    "blockedResumeClaims": [
+      "上线后提升转化率",
+      "真实 AI 准确率",
+      "商业化验证成功"
+    ],
+    "portfolioOutline": [
+      {
+        "title": "Project Snapshot",
+        "description": "用 3-5 行说明项目背景、目标用户、核心问题和原型形态。"
+      },
+      {
+        "title": "Product Problem & Target User",
+        "description": "说明新手创作者为什么收藏很多内容后仍难以进入创作执行。"
+      },
+      {
+        "title": "Research & Insight",
+        "description": "把 7 人小样本探索调研写成早期问题判断，而不是大规模验证。"
+      },
+      {
+        "title": "Product Flow",
+        "description": "展示保存内容、补充启发、模拟 AI 建议、任务卡和复盘筛选的闭环。"
+      },
+      {
+        "title": "Scope & Prioritization",
+        "description": "解释 P0 为什么先做任务转化闭环，P1 为什么延后真实 AI、云同步和数据看板。"
+      },
+      {
+        "title": "AI Solution Fit",
+        "description": "说明当前 AI 是模拟流程，价值在于验证交互和信息结构。"
+      },
+      {
+        "title": "Implementation Evidence",
+        "description": "引用 README、demo、docs、index.html、vercel.json 和 git metadata。"
+      },
+      {
+        "title": "Outcome & Limitations",
+        "description": "写清楚可展示成果与缺失证据，不声称真实增长或商业结果。"
+      },
+      {
+        "title": "Next Iteration Plan",
+        "description": "列出 ownership 确认、真实 AI/API 验证、质量评估和用户测试行动。"
+      }
+    ],
+    "interviewPitch": "「别只收藏」是我围绕内容创作者前置工作流做的一个产品案例。很多新手创作者会收藏选题、标题、封面、脚本结构和案例，但收藏后很难转成真正要做的视频任务。我基于小样本调研，把问题从“如何收藏更多”改成“如何把收藏转成创作任务”，并做了一个可交互 Demo：用户保存内容、补一句创作启发，模拟 AI 识别创作用途、标签和下一步行动，再生成任务卡进入收集箱和复盘流程。",
+    "boundary": {
+      "safeClaims": [
+        "小样本探索调研",
+        "静态交互 Demo",
+        "模拟 AI 流程",
+        "PM 作品集案例",
+        "P0/P1 范围拆分"
+      ],
+      "blockedClaims": [
+        "真实 AI API 已接入",
+        "用户增长、留存、转化率提升",
+        "商业化验证成功",
+        "Android/Kotlin/Room 已在本仓库验证",
+        "AI 识别准确率达到某个数值"
+      ]
+    }
+  },
+  "outputs": {
+    "intro": "标准资料包放在 career-case-package/<project-slug>/。每个文件都服务于不同求职场景，并保留证据边界。",
+    "files": [
+      {
+        "file": "00_README.md",
+        "purpose": "资料包入口与阅读顺序",
+        "audience": "evidence",
+        "status": "usable",
+        "detail": "告诉读者如何从 inspection、scorecard、case package 到导出材料逐步阅读。"
+      },
+      {
+        "file": "01_SOURCE_INSPECTION_REPORT.md",
+        "purpose": "记录只读检查范围",
+        "audience": "evidence",
+        "status": "usable",
+        "detail": "说明读取了 README、docs、demo、部署线索和 git metadata，也说明未检查材料。"
+      },
+      {
+        "file": "02_CASE_READINESS_SCORECARD.md",
+        "purpose": "评估求职案例证据完整度",
+        "audience": "evidence",
+        "status": "usable",
+        "detail": "用 8 个维度给出 12 / 16 和 usable-with-caveats 结论。"
+      },
+      {
+        "file": "03_EVIDENCE_LEDGER.md",
+        "purpose": "逐条管理 claim 与证据",
+        "audience": "evidence",
+        "status": "caveat",
+        "detail": "把 7 人小样本标为 research finding，而不是 measured product metric。"
+      },
+      {
+        "file": "04_PRODUCT_DECISION_LOG.md",
+        "purpose": "还原 PM 决策链",
+        "audience": "portfolio",
+        "status": "caveat",
+        "detail": "把不做普通收藏夹、P0/P1 范围和模拟 AI 边界写成 retrospective decision reconstruction。"
+      },
+      {
+        "file": "05_PM_CASE_PACKAGE.md",
+        "purpose": "完整 PM case 正文",
+        "audience": "portfolio",
+        "status": "usable",
+        "detail": "把项目介绍、问题、目标用户、产品流程、优先级和限制整合成案例。"
+      },
+      {
+        "file": "06_RESUME_BULLETS_CN.md",
+        "purpose": "中文简历 bullet",
+        "audience": "resume",
+        "status": "action-needed",
+        "detail": "给出保守版、AI 产品经理版、To C 产品经理版和补证据前禁用表达。"
+      },
+      {
+        "file": "07_PORTFOLIO_CASE_STUDY_CN.md",
+        "purpose": "中文作品集结构",
+        "audience": "portfolio",
+        "status": "usable",
+        "detail": "把项目转成作品集页面大纲，可直接用于搭建 case study。"
+      },
+      {
+        "file": "08_INTERVIEW_STORIES_CN.md",
+        "purpose": "面试故事与表达",
+        "audience": "interview",
+        "status": "caveat",
+        "detail": "把产品判断、取舍和证据边界转成 30 秒 pitch 与追问回答。"
+      },
+      {
+        "file": "09_EXPORT_BOUNDARY_CHECK.md",
+        "purpose": "导出边界检查",
+        "audience": "evidence",
+        "status": "usable",
+        "detail": "明确哪些可写、哪些需 caveat、哪些需确认 ownership、哪些禁用。"
+      },
+      {
+        "file": "10_MISSING_SOURCE_CHECKLIST.md",
+        "purpose": "缺失材料清单",
+        "audience": "next action",
+        "status": "action-needed",
+        "detail": "列出 ownership 说明、用户使用记录、AI/API 验证和质量评估等缺口。"
+      },
+      {
+        "file": "11_NEXT_EVIDENCE_ACTION.md",
+        "purpose": "下一步证据行动",
+        "audience": "next action",
+        "status": "action-needed",
+        "detail": "从多个缺口中选择当前最值得先补的行动。"
+      },
+      {
+        "file": "12_OWNERSHIP_AND_SOURCE_APPENDIX.md",
+        "purpose": "个人贡献与来源附录",
+        "audience": "evidence",
+        "status": "action-needed",
+        "detail": "区分本人主导、AI 工具辅助、仓库可见事实、未验证 claim 和禁用 claim。"
+      },
+      {
+        "file": "PROJECT_GROWTH.md",
+        "purpose": "证据成长记录",
+        "audience": "next action",
+        "status": "usable",
+        "detail": "保留 evidence coaching 能力，记录后续补证据行动。"
+      }
+    ]
+  },
+  "evaluation": {
+    "total": 12,
+    "max": 16,
+    "level": "usable-with-caveats",
+    "definition": "这个评分衡量的是“求职案例证据完整度”，不是产品商业成功，也不是招聘成功率。",
+    "strengths": [
+      "问题定位",
+      "用户研究摘要",
+      "交互 demo",
+      "模拟 AI 流程",
+      "作品集表达"
+    ],
+    "weaknesses": [
+      "PM 决策日志不足",
+      "真实 AI/API 未验证",
+      "ownership 未完全确认",
+      "缺少真实指标和质量评估"
+    ],
+    "dimensions": [
+      {
+        "name": "问题与目标用户",
+        "score": 2,
+        "note": "README 和 demo 能说明目标人群与核心问题。"
+      },
+      {
+        "name": "用户研究信号",
+        "score": 2,
+        "note": "有 7 人小样本探索调研，可用于早期问题判断。"
+      },
+      {
+        "name": "产品范围与用户流程",
+        "score": 2,
+        "note": "交互 demo 和文档呈现了保存、启发、任务卡、复盘闭环。"
+      },
+      {
+        "name": "PM 优先级与决策推理",
+        "score": 1,
+        "note": "有回溯决策链，但缺少原始历史决策记录。",
+        "risk": true
+      },
+      {
+        "name": "AI / 技术方案适配",
+        "score": 1,
+        "note": "可展示模拟 AI 流程，但不能声称真实 AI API 效果。",
+        "risk": true
+      },
+      {
+        "name": "可运行原型或 Demo",
+        "score": 2,
+        "note": "有可运行交互 demo 和部署线索。"
+      },
+      {
+        "name": "个人贡献与 ownership",
+        "score": 1,
+        "note": "仓库可见项目成果，但一人称贡献仍需用户确认。",
+        "risk": true
+      },
+      {
+        "name": "指标、验证或质量检查",
+        "score": 1,
+        "note": "有小样本调研信号，缺少真实留存、转化、采纳率或质量评估。",
+        "risk": true
+      }
+    ]
+  },
+  "beforeAfter": {
+    "before": [
+      "只有一个 GitHub 项目。",
+      "简历能写什么不清楚。",
+      "用户研究、AI 能力、指标容易被夸大。",
+      "PM 逻辑分散在 README、docs、demo 和代码里。"
+    ],
+    "after": [
+      "输出 PM case package。",
+      "每个 claim 有证据状态。",
+      "简历 bullet 被分成可用、需确认、禁用。",
+      "作品集结构和面试故事自动生成。",
+      "下一步证据行动明确。"
+    ]
+  },
+  "iteration": [
+    {
+      "version": "V0",
+      "title": "Evidence Audit",
+      "problem": "只输出 PROJECT_GROWTH，过于保守。",
+      "optimization": "加入 repository-to-resume-package mode。",
+      "result": "能生成完整资料包。"
+    },
+    {
+      "version": "V1",
+      "title": "Package Generation",
+      "problem": "clone 失败时容易中断。",
+      "optimization": "加入 limited-inspection fallback。",
+      "result": "即使只能看到 README/网页，也能输出带 caveat 的资料包。"
+    },
+    {
+      "version": "V2",
+      "title": "Standardization",
+      "problem": "文件命名不统一，中文内容不够可复制。",
+      "optimization": "标准化 00-12 文件结构，输出中文简历 bullet。",
+      "result": "更适合展示和复用。"
+    },
+    {
+      "version": "V3",
+      "title": "PM Reasoning",
+      "problem": "P0/P1 有列表，但缺少“为什么这样做”。",
+      "optimization": "新增 Product Decision Log。",
+      "result": "把功能范围转化为产品判断链。"
+    },
+    {
+      "version": "V4",
+      "title": "Ownership Boundary",
+      "problem": "first-person resume claims 受 ownership uncertain 限制。",
+      "optimization": "新增 Ownership and Source Appendix。",
+      "result": "区分本人主导、AI 工具辅助、未验证 claim 和禁用 claim。"
+    }
+  ],
+  "roadmap": {
+    "MVP": [
+      "输入项目 URL + 目标岗位。",
+      "输出 source inspection、evidence ledger、resume bullets、export boundary。"
+    ],
+    "P0": [
+      "只读仓库分析。",
+      "完整 PM case package。",
+      "证据状态标签。",
+      "中文简历 bullet。",
+      "readiness score。",
+      "limited-inspection fallback。",
+      "decision log。",
+      "ownership appendix。"
+    ],
+    "P1": [
+      "多项目横向对比。",
+      "按具体 JD 自动改写。",
+      "自动截图或 demo 录屏。",
+      "解析原始调研材料。",
+      "AI feature evaluation template。",
+      "一键导出网页作品集。",
+      "多语言版本。"
+    ]
+  },
+  "evidenceBoundaries": [
+    "这是对 Skill 的展示，不是 dont-just-save 产品成功证明。",
+    "dont-just-save 只是实验输入项目。",
+    "Skill 生成的是求职资料包，不代表真实商业结果。",
+    "不声称真实 AI API、真实增长、留存、转化、收入或商业化验证。",
+    "mock AI 应写成“模拟 AI 流程”。",
+    "7 人调研只能写“小样本探索调研”或“早期问题判断”。"
+  ]
+}

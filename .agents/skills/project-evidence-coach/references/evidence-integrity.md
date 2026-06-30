@@ -6,9 +6,9 @@ Use this reference to classify every observation before it enters the evidence l
 
 Allowed `evidence state` values: `existing verified evidence` | `partial or weak evidence` | `retrospective validation` | `proposed future work`
 
-Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership uncertain` | `ownership blocked`
+Allowed `ownership status` values: `led` | `contributed` | `assisted` | `ownership confirmed` | `ownership uncertain` | `tool-assisted` | `not owned` | `source missing` | `ownership blocked`
 
-Allowed `metric label` values: `suggested metric` | `instrumented metric` | `measured result` | `not applicable`
+Allowed `metric label` values: `research finding` | `prototype artifact` | `measured product metric` | `suggested metric` | `not applicable`
 
 ## Evidence states
 
@@ -77,20 +77,35 @@ Use only:
 ## Ownership and conflicts
 
 - Ownership must use `led`, `contributed`, or `assisted` when attributable.
+- Use `ownership confirmed` when the user explicitly confirms the GitHub account and contribution scope.
 - Use `ownership uncertain` when attribution is unresolved but may still be resolved through confirmation or an attributable artifact.
+- Use `tool-assisted` when the user confirms AI/coding tools assisted the work and the candidate reviewed, integrated, or made the relevant decisions.
+- Use `not owned` when the user clearly says the work was not theirs.
+- Use `source missing` when a claim appears in materials but lacks corresponding source code, screenshot, build proof, raw record, or source artifact.
 - Use `ownership blocked` when the confirmation or attributable artifact needed to resolve ownership cannot currently be obtained.
 - Claims marked `ownership uncertain` or `ownership blocked` do not upgrade and `do not export`.
 - If artifacts disagree, keep both observations visible as `conflicting artifacts` until resolved.
 - Require explicit user confirmation before using a collaborator-owned outcome as the user's claim.
 
+Ownership export rules:
+
+- 只有 `ownership confirmed` or explicit `tool-assisted + candidate reviewed/integrated` claims can enter strong first-person resume bullets.
+- `ownership uncertain` claims can only enter “确认个人贡献后可使用”.
+- `not owned` 不能进入简历.
+- `source missing` can only appear as a caveat or blocked claim.
+- Do not claim the candidate owns a GitHub account, completed research, wrote code, designed UI, deployed the project, or authored a storyboard unless the user confirms it or a source proves it.
+
 ## Metric labels
 
 Use exactly these metric labels:
 
+- `research finding`: qualitative or small-sample research evidence, including interview/survey findings such as a 7-person small-sample study
+- `prototype artifact`: prototype, demo, design, code, storyboard, or other artifact evidence that proves a product surface exists
+- `measured product metric`: real product metric tied to a source and scope, such as retention, conversion, accuracy, adoption rate, revenue, latency, or task completion rate
 - `suggested metric`: a reasonable future measure with no collected data yet
-- `instrumented metric`: tracking exists, but no trustworthy outcome is established yet
-- `measured result`: a collected outcome tied to a source and scope
 - `not applicable`: the evidence item makes no metric or result claim
+
+7-person small-sample research claims must use `research finding`, not `measured product metric`. Only real retention, conversion, accuracy, adoption, revenue, latency, or similar product outcome data can use `measured product metric`.
 
 ## Export matrix
 
