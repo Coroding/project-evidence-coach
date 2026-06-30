@@ -77,6 +77,7 @@ function renderRepoToResume(data) {
     ["GitHub", repo.githubUrl],
     ["GitHub Pages", repo.githubPagesUrl],
     ["Vercel Demo", repo.vercelUrl],
+    ["离线应用示例", repo.offlineExampleUrl],
   ].forEach(([label, href]) => {
     const link = createElement("a", "repo-link", label);
     link.href = href;

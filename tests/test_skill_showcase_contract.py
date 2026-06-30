@@ -15,6 +15,9 @@ class SkillShowcaseContractTest(unittest.TestCase):
             SHOWCASE_DIR / "styles.css",
             SHOWCASE_DIR / "app.js",
             DATA_PATH,
+            SHOWCASE_DIR / "app-example" / "index.html",
+            SHOWCASE_DIR / "app-example" / "styles.css",
+            SHOWCASE_DIR / "app-example" / "app.js",
         ]
 
         for path in expected:
@@ -55,6 +58,7 @@ class SkillShowcaseContractTest(unittest.TestCase):
             repo["githubPagesUrl"], "https://coroding.github.io/dont-just-save/"
         )
         self.assertEqual(repo["vercelUrl"], "https://dont-just-save.vercel.app/")
+        self.assertEqual(repo["offlineExampleUrl"], "app-example/")
 
         self.assertGreaterEqual(len(data["repoToResume"]["resumeOutputs"]), 3)
         self.assertGreaterEqual(len(data["repoToResume"]["portfolioOutline"]), 1)

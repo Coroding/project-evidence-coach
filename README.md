@@ -68,7 +68,7 @@ Detailed workflow, integrity, persistence, and AI product manager evaluation rul
 
 ## Skill Showcase
 
-A static demo page is available at `docs/skill-showcase/index.html`. It shows how Project Evidence Coach converts a real GitHub repository into a PM resume/case package, including prompt, outputs, evaluation scorecard, iteration log, and MVP/P0/P1 roadmap.
+A static demo page is available at `docs/skill-showcase/index.html`. It shows how Project Evidence Coach converts a real GitHub repository into a PM resume/case package, including prompt, outputs, evaluation scorecard, iteration log, and MVP/P0/P1 roadmap. A bundled offline-readable application example is available at `docs/skill-showcase/app-example/index.html`.
 
 ## License
 

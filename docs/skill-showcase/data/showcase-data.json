@@ -81,6 +81,7 @@
       "githubUrl": "https://github.com/Coroding/dont-just-save",
       "githubPagesUrl": "https://coroding.github.io/dont-just-save/",
       "vercelUrl": "https://dont-just-save.vercel.app/",
+      "offlineExampleUrl": "app-example/",
       "oneSentence": "面向刚开始做知识型内容创作的新手创作者，把有启发的内容保存成选题卡片，并在收集箱和复盘页筛选为待制作、以后再看或放弃。",
       "sources": [
         "README",
